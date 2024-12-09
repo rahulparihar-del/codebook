@@ -7,7 +7,7 @@ function getSession() {
 export const getUser = async () => {
   const { token, cbid } = getSession();
 
-  const response = await fetch(`${process.env.REACT_APP_HOST}/600/users/${cbid}s`, {
+  const response = await fetch(`${process.env.REACT_APP_HOST}/600/users/${cbid}`, {
     method: "GET",
     headers: {
       "Content-Type": "application/json",

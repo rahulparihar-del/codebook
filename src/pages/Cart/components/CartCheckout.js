@@ -33,6 +33,8 @@ const CartCheckout = () => {
     }
   };
 
+  console.log(user);
+
   return (
     <section>
       {errorMessage ? (
