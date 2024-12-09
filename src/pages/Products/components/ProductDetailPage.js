@@ -3,8 +3,8 @@ import Rating from "../../../components/Elements/Rating";
 import { useParams } from "react-router-dom";
 import { useTitle } from "../../../hooks/useTitle";
 import { useCart } from "../../../context";
-import { getProduct } from "../../../services/productService";
 import ErrorPage from "../../Error/ErrorPage";
+import { getProduct } from "../../../services/productService";
 
 const ProductDetailPage = () => {
   const { cartList, removeFromCart, addToCart } = useCart();
