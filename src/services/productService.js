@@ -19,7 +19,7 @@ export const getProduct = async (id) => {
 };
 
 export const getFeaturedProduct = async () => {
-  const response = await fetch(`${process.env.REACT_APP_HOST}/444/featured_products`);
+  const response = await fetch(`${process.env.REACT_APP_HOST}/444/feature_products`);
   if (!response.ok) {
     throw new Error(`HTTP error! Status: ${response.status}, Message: ${response.statusText}`);
   }
