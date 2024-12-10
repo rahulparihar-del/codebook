@@ -1,30 +1,18 @@
 import { Link } from "react-router";
 import Logo from "../../assets/logo.png";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import Search from "../Sections/Search";
 import { DropdownLoggedOut } from "../Elements/DropdownLoggedOut";
 import { DropdownLoggedIn } from "../Elements/DropdownLoggedIn";
 import { useCart } from "../../context";
 
 const Header = () => {
-  const [darkMode, setDarkMode] = useState(
-    JSON.parse(localStorage.getItem("darkMode")) || false
-  );
 
   const {cartList} = useCart();
 
   const [showSearch, setShowSearch] = useState(false);
   const [dropDown, setDropDown] = useState(false);
   const token = JSON.parse(sessionStorage.getItem("token"));
-
-  useEffect(() => {
-    localStorage.setItem("darkMode", JSON.stringify(darkMode));
-    if (darkMode) {
-      document.documentElement.classList.add("dark");
-    } else {
-      document.documentElement.classList.remove("dark");
-    }
-  }, [darkMode]);
 
   return (
     <header>
