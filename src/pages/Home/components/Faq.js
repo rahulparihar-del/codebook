@@ -36,7 +36,7 @@ const Faq = () => {
 
   return (
     <section className="my-10 p-7 border rounded dark:border-slate-700 shadow-sm">
-      <h1 className="text-2xl text-center font-semibold dark:text-slate-100 mb-3 underline underline-offset-8">
+      <h1 className="text-center font-semibold dark:text-slate-100 mb-3 underline underline-offset-8" style={{fontSize: "1.7rem"}}>
         Question in mind?
       </h1>
       <div 

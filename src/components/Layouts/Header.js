@@ -37,10 +37,10 @@ const Header = () => {
             </span>
           </Link>
           <div className="flex items-center relative">
-            <span
+            {/* <span
               onClick={() => setDarkMode(!darkMode)}
               className="cursor-pointer text-xl text-gray-700 dark:text-white mr-5 bi bi-gear-wide-connected"
-            ></span>
+            ></span> */}
             <span
               onClick={() => setShowSearch(!showSearch)}
               className="cursor-pointer text-xl text-gray-700 dark:text-white mr-5 bi bi-search"

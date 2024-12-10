@@ -1,48 +1,61 @@
 import React, { useState } from "react";
-import CartCard from "./CartCard";
 import CartCheckout from "./CartCheckout";
 import { useCart } from "../../../context";
+import { Link } from "react-router-dom";
+import CartCard from "./CartCard";
 
 const CartList = () => {
+  const [checkout, setCheckout] = useState(false);
 
-  const[checkout , setCheckout] = useState(false);
-
-  const {cartList, total} = useCart()
+  const { cartList, total } = useCart();
 
   return (
     <>
-      <section>
-        <p className="text-2xl text-center font-semibold dark:text-slate-100 my-10 underline underline-offset-8">
-          My Cart ({cartList.length})
-        </p>
-      </section>
-
-      <section>
-        {cartList.map((product) => (
-         <CartCard key={product.id} product={product} />
-        ))}
-      </section>
-
       <section className="max-w-4xl m-auto">
-        <div className="flex flex-col p-2 border-b dark:border-slate-700 text-lg dark:text-slate-100">
-          <p className="flex justify-between my-2">
-            <span className="font-semibold">Total Amount:</span>
-            <span>
-              ${total} 
-            </span>
-          </p>
+        <div className="flex flex-col max-w-3xl p-6 space-y-4 sm:p-10 dark:bg-gray-50 dark:text-gray-800">
+          <h2 className="text-xl font-semibold">
+            Your Cart ({cartList.length})
+          </h2>
+          {cartList.map((product) => (
+            <CartCard key={product.id} product={product} />
+          ))}
+
+          <div className="space-y-1 text-right">
+            <p>
+              Total amount:
+              <span className="font-semibold">${total}</span>
+            </p>
+            <p className="text-sm dark:text-gray-600">
+              Not including taxes and shipping costs
+            </p>
+          </div>
+          <div className="flex justify-end space-x-4">
+            <Link
+              to="/products"
+              type="button"
+              className="px-6 py-2 border rounded-md border-violet-600"
+              style={{ border: "1px solid #1C4ED8" }}
+            >
+              Back
+              <span className="sr-only sm:not-sr-only">to shop</span>
+            </Link>
+            <button
+              type="button"
+              className="px-6 py-2 border rounded-md  text-white border-violet-600"
+              style={{ backgroundColor: "#1C4ED8" }}
+            >
+              <span
+                onClick={() => setCheckout(!checkout)}
+                className="sr-only sm:not-sr-only"
+              >
+                Continue to Checkout
+              </span>
+            </button>
+          </div>
         </div>
-        <div className="text-right my-5">
-          <button
-            onClick={() => setCheckout(!checkout)}
-            type="button"
-            className="text-white bg-blue-700 hover:bg-blue-800 font-medium rounded-lg text-base px-7 py-2.5 mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700"
-          >
-            PLACE ORDER <i className="ml-2 bi bi-arrow-right"></i>
-          </button>
-        </div>
+
+        {checkout && <CartCheckout />}
       </section>
-      {checkout && <CartCheckout />}
     </>
   );
 };

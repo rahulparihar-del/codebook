@@ -1,7 +1,6 @@
-import React from "react";
-import { ProductCard } from "../../components";
+import React, { useState, useEffect } from "react";
+import { ProductCard, ProductCardSkeleton } from "../../components";
 import FilterBar from "./components/FilterBar";
-import { useState, useEffect } from "react";
 import { useLocation } from "react-router-dom";
 import { useTitle } from "../../hooks/useTitle";
 import { useFilter } from "../../context";
@@ -11,6 +10,7 @@ import ErrorPage from "../Error/ErrorPage";
 const ProductsList = () => {
   const [show, setShow] = useState(false);
   const [errorMessage, setErrorMessage] = useState("");
+  const [loading, setLoading] = useState(true); // Add loading state
   const search = useLocation().search;
   const query = new URLSearchParams(search).get("q");
   useTitle("Explore ebooks Collection");
@@ -20,9 +20,11 @@ const ProductsList = () => {
     try {
       const data = await getProductList(query);
       inititalProductList(data);
+      setLoading(false); // Set loading to false after data is fetched
       setErrorMessage("");
     } catch (error) {
       setErrorMessage(error.message);
+      setLoading(false); // Set loading to false if there's an error
     }
   };
 
@@ -62,9 +64,17 @@ const ProductsList = () => {
             <ErrorPage errorMessage={errorMessage} />
           ) : (
             <>
-              {productList.map((product) => (
-                <ProductCard key={product.id} product={product} />
-              ))}
+              {loading ? (
+                // Show skeleton loaders while loading
+                Array.from({ length: 15 }).map((_, index) => (
+                  <ProductCardSkeleton key={index} />
+                ))
+              ) : (
+                // Show actual product cards after data is loaded
+                productList.map((product) => (
+                  <ProductCard key={product.id} product={product} />
+                ))
+              )}
             </>
           )}
         </div>

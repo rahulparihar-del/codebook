@@ -34,21 +34,10 @@ const DashboardPage = () => {
       <section>
         {errorMessage ? (
           <ErrorPage errorMessage={errorMessage} />
+        ) : orders.length > 0 ? (
+          orders.map((order) => <DashboardCard key={order.id} order={order} />)
         ) : (
-          <>
-            {orders.length &&
-              orders?.map((order) => (
-                <DashboardCard key={order.id} order={order} />
-              ))}
-          </>
-        )}
-      </section>
-
-      <section>
-        {errorMessage ? (
-          <ErrorPage errorMessage={errorMessage} />
-        ) : (
-          <>{!orders.length && <DashboardEmpty />}</>
+          <DashboardEmpty />
         )}
       </section>
     </main>
