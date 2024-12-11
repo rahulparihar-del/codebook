@@ -65,6 +65,7 @@ const ProductCard = ({ product }) => {
               onClick={() => addToCart(product)}
               disabled={product.in_stock ? "" : "disabled"}
               className={`inline-flex items-center py-2 px-3 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 ${product.in_stock ? "" : "cursor-not-allowed"}`}
+              style={{ backgroundColor: "#2C2E35" }}
             >
               Add To Cart <i className="ml-1 bi bi-plus-lg"></i>
             </button>

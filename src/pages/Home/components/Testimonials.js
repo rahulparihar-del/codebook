@@ -90,7 +90,7 @@ const Testimonials = () => {
                   </svg>
                 </p>
               </div>
-              <div className="flex flex-col items-center justify-center p-8 rounded-b-lg bg-violet-600 text-white" style={{backgroundColor: "#1C4ED8"}}>
+              <div className="flex flex-col items-center justify-center p-8 rounded-b-lg bg-violet-600 text-white" style={{backgroundColor: "#2C2E35"}}>
                 <img
                   src={image}
                   alt={name}
