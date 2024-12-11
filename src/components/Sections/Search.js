@@ -36,6 +36,7 @@ const Search = ({ setShowSearch }) => {
                 <button
                     type="submit"
                     className="bi bi-search py-2.5 px-3 ml-2 text-sm font-medium text-white bg-blue-700 rounded-lg border border-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+                    style={{backgroundColor: "#2C2E35", borderColor: "#2C2E35"}}    
                 >
                     Search
                 </button>
