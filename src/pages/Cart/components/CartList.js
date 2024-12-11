@@ -37,7 +37,7 @@ const CartList = () => {
               style={{ border: "1px solid #2C2E35" }}
 
             >
-              Back to shop
+              Back to Home
             </Link>
             <button
               type="button"
