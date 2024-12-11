@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 import { createOrders, getUser } from "../../../services";
 import ErrorPage from "../../Error/ErrorPage";
 
-const CartCheckout = () => {
+const CartCheckout = ({setCheckout}) => {
   const { cartList, total, clearCart } = useCart();
   const [user, setUser] = useState({});
   const navigate = useNavigate();
@@ -33,8 +33,6 @@ const CartCheckout = () => {
     }
   };
 
-  console.log(user);
-
   return (
     <section>
       {errorMessage ? (
@@ -52,6 +50,7 @@ const CartCheckout = () => {
             <div className="relative p-4 w-full max-w-md h-full md:h-auto overflow-y-auto">
               <div className="relative bg-white rounded-lg shadow dark:bg-gray-700">
                 <button
+                onClick={() => setCheckout(false)}
                   type="button"
                   className="absolute top-3 right-2.5 text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center dark:hover:bg-gray-800 dark:hover:text-white"
                   data-modal-toggle="authentication-modal"

@@ -6,6 +6,7 @@ import CartCard from "./CartCard";
 
 const CartList = () => {
   const [checkout, setCheckout] = useState(false);
+  console.log(checkout);
 
   const { cartList, total } = useCart();
 
@@ -45,14 +46,14 @@ const CartList = () => {
               style={{ backgroundColor: "#2C2E35" }}
 
             >
-              <span onClick={() => setCheckout(!checkout)}>
+              <span onClick={() => setCheckout(true)}>
                 Continue to Checkout
               </span>
             </button>
           </div>
         </div>
 
-        {checkout && <CartCheckout />}
+        {checkout && <CartCheckout setCheckout={setCheckout} />}
       </section>
     </>
   );
