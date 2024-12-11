@@ -158,7 +158,7 @@ const Resgister = () => {
                       to="/login"
                       className="text-blue-600 font-semibold hover:underline ml-1"
                     >
-                      Resgister here
+                      Login here
                     </Link>
                   </p>
                 </form>

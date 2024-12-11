@@ -36,18 +36,14 @@ const CartList = () => {
               className="px-6 py-2 border rounded-md border-violet-600"
               style={{ border: "1px solid #1C4ED8" }}
             >
-              Back
-              <span className="sr-only sm:not-sr-only">to shop</span>
+              Back to shop
             </Link>
             <button
               type="button"
               className="px-6 py-2 border rounded-md  text-white border-violet-600"
               style={{ backgroundColor: "#1C4ED8" }}
             >
-              <span
-                onClick={() => setCheckout(!checkout)}
-                className="sr-only sm:not-sr-only"
-              >
+              <span onClick={() => setCheckout(!checkout)}>
                 Continue to Checkout
               </span>
             </button>
