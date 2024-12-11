@@ -146,8 +146,9 @@ const Resgister = () => {
                     <button
                       type="submit"
                       className="w-full shadow-xl py-3 px-4 text-sm tracking-wide rounded-lg text-white bg-blue-600 hover:bg-blue-700 focus:outline-none"
+                      style={{ backgroundColor: "#2C2E35" }}
                     >
-                      Log in
+                      Resgister
                     </button>
                   </div>
 
