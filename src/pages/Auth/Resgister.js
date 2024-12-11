@@ -24,8 +24,6 @@ const Resgister = () => {
       const data = await register(authDetails);
 
       data.accessToken ? navigate("/products") : toast.error(data);
-      // wanna show resgister success message
-      navigate("/products");
       toast.success(`Resgistered successfully ${authDetails.name}`);
     } catch (error) {
       setErrorMessage(error.message);

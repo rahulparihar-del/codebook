@@ -25,8 +25,10 @@ const Login = () => {
       const data = await login(authDetails);
       console.log(data);
       data.accessToken ? navigate("/products") : toast.error(data);
+
     } catch (error) {
-      setErrorMessage(error.message);
+      setErrorMessage("Invalid credentials");
+      toast.error("Invalid credentials");
     }
   }
 
