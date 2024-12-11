@@ -41,7 +41,7 @@ const CartList = () => {
             </Link>
             <button
               type="button"
-              className="px-6 py-2 border rounded-md  text-white border-violet-600"
+              className="px-6 py-2 border rounded-md  text-white"
               style={{ backgroundColor: "#2C2E35" }}
 
             >
